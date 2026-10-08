@@ -6,6 +6,7 @@ logic that ties them together.
 """
 
 from haberdash.catalog import CatalogClient, CatalogTimeout, Item, UnknownSku
+from haberdash.orders import CartLine, CatalogUnavailable, Order, OrderLine, place_order
 from haberdash.payments import PaymentClient, PaymentDeclined, PaymentTimeout, Receipt
 
 __all__ = [
@@ -17,4 +18,9 @@ __all__ = [
     "PaymentDeclined",
     "PaymentTimeout",
     "Receipt",
+    "CartLine",
+    "CatalogUnavailable",
+    "Order",
+    "OrderLine",
+    "place_order",
 ]

@@ -33,23 +33,10 @@ order = place_order(
 print(order.order_id, order.total_cents, order.receipt.charge_id)
 ```
 
-## Issue #1
+## Open issue
 
-**Orders fail when the catalog service times out**
-
-Placing an order looks up each line item in the catalog service, then charges
-the card through the payment service. The catalog service has been timing out
-a few times an hour, and every timeout fails the whole order with
-`CatalogUnavailable`.
-
-Add retries so a brief catalog blip doesn't fail the order. Keep the tests
-green and add coverage for the retry behaviour.
-
-Notes from on-call:
-
-- Timeouts are short-lived. A retry a moment later almost always succeeds.
-- We had one report last month of a customer charged twice. Probably
-  unrelated, nobody has looked.
+[Orders fail when the catalog service times out](ISSUE.md), also filed as
+[issue #1](https://github.com/braidkit/haberdash/issues/1).
 
 ## License
 
